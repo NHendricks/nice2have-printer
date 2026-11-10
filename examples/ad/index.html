@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>nice2have-printer – posters in HTML, printed to the millimetre</title>
+    <link rel="stylesheet" href="canvas.css" />
+  </head>
+  <body>
+    <main class="canvas">
+      <!-- ---------- Top line ---------- -->
+      <div class="topline">
+        <div class="wordmark">
+          <svg class="mark" viewBox="0 0 841 1189" aria-hidden="true">
+            <rect x="20" y="20" width="801" height="1149" rx="40" fill="none" stroke="currentColor" stroke-width="60" />
+            <path d="M20 594.5H821M420.5 20V594.5M20 297H420.5M210 20V297" stroke="currentColor" stroke-width="44" fill="none" />
+          </svg>
+          <span>nice2have-printer</span>
+        </div>
+        <div class="tags">
+          <span>HTML + CSS</span><span>DIN A0</span><span>841 × 1189 mm</span>
+        </div>
+      </div>
+
+      <!-- ---------- Hero ---------- -->
+      <section class="hero">
+        <div class="hero-text">
+          <p class="kicker">Print-ready posters from plain HTML</p>
+          <h1>Write HTML.<br />Print A0.<br /><em>Exactly.</em></h1>
+          <p class="lead">
+            nice2have-printer turns one HTML file and one CSS file into an exact DIN&nbsp;A0 PDF – checked,
+            vector-sharp and ready for the print shop. No build step. No npm packages.
+          </p>
+        </div>
+
+        <figure class="din">
+          <svg viewBox="0 0 841 1189" role="img" aria-label="DIN paper sizes nested inside one A0 sheet">
+            <rect class="a1" x="0" y="594.5" width="841" height="594.5" />
+            <rect class="a2" x="420.5" y="0" width="420.5" height="594.5" />
+            <rect class="a3" x="0" y="297.25" width="420.5" height="297.25" />
+            <rect class="a4" x="210.25" y="0" width="210.25" height="297.25" />
+            <rect class="a5" x="0" y="148.6" width="210.25" height="148.65" />
+            <rect class="a6" x="0" y="0" width="210.25" height="148.6" />
+            <rect class="outline" x="4" y="4" width="833" height="1181" />
+            <text x="420.5" y="950" font-size="190">A1</text>
+            <text x="630.75" y="345" font-size="130">A2</text>
+            <text x="210.25" y="490" font-size="96">A3</text>
+            <text x="315.4" y="185" font-size="68">A4</text>
+            <text x="105.1" y="262" font-size="50">A5</text>
+            <text x="105.1" y="112" font-size="38">A6</text>
+          </svg>
+          <figcaption>One A0 sheet = 2 × A1 = 4 × A2 = 16 × A4</figcaption>
+        </figure>
+      </section>
+
+      <!-- ---------- How it works + terminal ---------- -->
+      <section class="workflow">
+        <div class="steps">
+          <h2>Three steps to print</h2>
+          <ol>
+            <li>
+              <b>Write</b>
+              <span>Lay out the content in <code>index.html</code>, style it in <code>canvas.css</code>. Every size is a multiple of <code>--u</code>.</span>
+            </li>
+            <li>
+              <b>Check</b>
+              <span><code>npm run shot</code> renders a full-size screenshot and reports format, overflow and fonts.</span>
+            </li>
+            <li>
+              <b>Print</b>
+              <span><code>npm run pdf</code> writes one exact A0 page, ready for the print shop.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="terminal" aria-label="Terminal output">
+          <div class="term-bar"><i></i><i></i><i></i><span>~/my-poster</span></div>
+<pre><span class="prompt">$</span> npm run shot
+Format:      841 × 1189 mm <span class="ok">OK (A0)</span>
+Free space:  Features: 0 mm
+Fonts:       Poppins 400 · 500 · 600 · 700
+Screenshot:  shot.png (3179 × 4494 px)
+
+<span class="prompt">$</span> npm run pdf
+PDF:         canvas-a0.pdf
+             <span class="ok">1 page · 841.0 × 1189.2 mm</span></pre>
+        </div>
+      </section>
+
+      <!-- ---------- Features ---------- -->
+      <section class="features" data-measure="Features">
+        <article class="card">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 34L34 6l8 8-28 28z" /><path d="M14 26l4 4M20 20l3 3M26 14l4 4" /></svg>
+          <h3>Exactly A0</h3>
+          <p>841 × 1189 mm on one page. Every export is checked against the format.</p>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 16l16-8 16 8v16l-16 8-16-8z" /><path d="M8 16l16 8 16-8M24 24v16" /><path d="M6 42L42 6" class="cross" /></svg>
+          <h3>Zero dependencies</h3>
+          <p>No <code>npm install</code>, no build, no dev server. Just Node&nbsp;22 and the browser you already have.</p>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42L12 22 24 6l12 16z" /><circle cx="24" cy="24" r="4" /><path d="M24 28v14" /></svg>
+          <h3>Vector-sharp</h3>
+          <p>Text, SVG and CSS stay vector, fonts are embedded. Only photos are pixels.</p>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l16 6v12c0 10-7 18-16 22C15 40 8 32 8 22V10z" /><path d="M16 24l6 6 11-12" /></svg>
+          <h3>Catches mistakes</h3>
+          <p>Clipped content, elements past the edge, missing images and fonts – reported before you print.</p>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="20" height="28" /><rect x="22" y="6" width="14" height="20" /><rect x="32" y="22" width="10" height="14" /></svg>
+          <h3>Any DIN format</h3>
+          <p>A0 to A4, portrait or landscape: change the three values marked <code>FORMAT</code>.</p>
+        </article>
+        <article class="card">
+          <svg class="icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="26" rx="3" /><path d="M17 42h14M24 34v8" /></svg>
+          <h3>Runs everywhere</h3>
+          <p>Windows, macOS and Linux. Finds Chrome, Chromium or Edge on its own – or set <code>CHROME</code>.</p>
+        </article>
+      </section>
+
+      <!-- ---------- Footer ---------- -->
+      <footer class="footer">
+        <p class="made"><b>This poster was made with nice2have-printer.</b> One HTML file, one CSS file, <code>npm run pdf</code>.</p>
+        <p class="req">Node ≥ 22 · Chrome / Edge / Chromium</p>
+      </footer>
+    </main>
+  </body>
+</html>

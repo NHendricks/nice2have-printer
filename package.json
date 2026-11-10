@@ -1,0 +1,11 @@
+{
+  "name": "nice2have-printer",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "check": "node nice2have-printer.mjs check",
+    "shot": "node nice2have-printer.mjs shot",
+    "pdf": "node nice2have-printer.mjs pdf"
+  }
+}

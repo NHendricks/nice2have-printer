@@ -1,0 +1,139 @@
+/* ============================================================
+   DIN A0 portrait (841 × 1189 mm) – starter template
+   Changing the format: edit the three places marked "FORMAT"
+   (@page and :root here, plus FORMAT in nice2have-printer.mjs).
+   Leave the font and print settings as they are,
+   adapt layout and colours as needed.
+   ============================================================ */
+
+/* Poppins, local (Latin subset, covers German incl. „“ – …) */
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: block; src: url(fonts/poppins-400.woff2) format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: block; src: url(fonts/poppins-500.woff2) format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: block; src: url(fonts/poppins-600.woff2) format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: block; src: url(fonts/poppins-700.woff2) format('woff2'); }
+
+/* FORMAT: paper size (CSS variables are not allowed here) */
+@page {
+  size: 841mm 1189mm portrait;
+  margin: 0;
+}
+
+:root {
+  /* FORMAT: canvas size and base unit (A0: 3.6px, ÷ √2 per format step) */
+  --w: 841mm;
+  --h: 1189mm;
+  /* Base unit: all sizes as calc(n * var(--u)) */
+  --u: 3.6px;
+  --accent: #5c2c90;
+  --accent-2: #fbbc5b;
+  --text: #555459;
+  --page: #fafafa;
+  --card: #f4f5f7;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #eae6e0;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  /* Print backgrounds in the PDF too */
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* Do not centre, do not scale: the canvas is wider than the viewport */
+body {
+  display: block;
+  width: var(--w);
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+@media print {
+  html, body { background: #fff; }
+}
+
+/* Fixed area in the target format; the height is a budget, overflow gets clipped */
+.canvas {
+  width: var(--w);
+  height: var(--h);
+  background: var(--page);
+  padding: calc(20 * var(--u));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ---------- Example layout (adapt freely) ---------- */
+.header {
+  flex: none;
+  height: calc(130 * var(--u));
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h1 {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: calc(26.5 * var(--u));
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.subtitle {
+  flex: none;
+  padding: calc(14 * var(--u));
+  font-size: calc(14 * var(--u));
+  font-weight: 600;
+}
+
+/* Takes the remaining height between header and footer */
+.content {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: start;
+  gap: calc(14 * var(--u));
+}
+
+.card {
+  background: var(--card);
+  border-radius: calc(9 * var(--u));
+  padding: calc(8 * var(--u)) calc(10 * var(--u));
+}
+
+h2 {
+  margin: 0 0 calc(5 * var(--u));
+  font-size: calc(20 * var(--u));
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--accent);
+}
+
+/* approx. 31 pt body text on A0 */
+p, li {
+  font-size: calc(11.5 * var(--u));
+  line-height: 1.4;
+}
+
+p { margin: 0; }
+b { font-weight: 700; }
+ul { margin: 0; padding-left: calc(18 * var(--u)); }
+li::marker { color: var(--accent-2); }
+
+img { display: block; max-width: 100%; height: auto; }
+
+.footer {
+  flex: none;
+  margin-top: calc(14 * var(--u));
+  height: calc(60 * var(--u));
+  background: var(--accent);
+}
